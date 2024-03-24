@@ -3,7 +3,6 @@ package com.example.tipcalculator
 import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import com.example.tipcalculator.databinding.ActivityMainBinding
 import com.google.android.material.button.MaterialButton
@@ -28,7 +27,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         binding.tip35.setOnClickListener(this)
     }
 
-    @SuppressLint("ResourceAsColor")
+    @SuppressLint("ResourceAsColor", "SetTextI18n")
     override fun onClick(view: View?) {
         when (view?.id) {
             R.id.tip_10 -> {
