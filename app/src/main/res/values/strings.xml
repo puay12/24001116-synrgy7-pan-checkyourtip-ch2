@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Check Your Tip</string>
+    <string name="bill_amount">Bill Amount</string>
+    <string name="satisfaction">How many do you want to give?</string>
+    <string name="bill_hint">15000</string>
+    <string name="tip_10">10%</string>
+    <string name="tip_15">15%</string>
+    <string name="tip_20">20%</string>
+    <string name="tip_25">25%</string>
+    <string name="tip_30">30%</string>
+    <string name="tip_35">35%</string>
+    <string name="round_up_my_tip">Round up my tip</string>
+    <string name="calculate_btn">Calculate</string>
+    <string name="your_tip">Your Tip :</string>
+    <string name="calculated_tip">Rp 0,-</string>
+    <string name="your_final_total_bill">Your final total bill :</string>
+    <string name="final_bill">Rp 0,-</string>
+</resources>
