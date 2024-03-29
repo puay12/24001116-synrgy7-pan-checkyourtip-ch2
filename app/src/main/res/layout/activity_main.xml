@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/root_layout"
@@ -16,254 +15,189 @@
             android:id="@+id/top_background"
             android:layout_width="match_parent"
             android:layout_height="100dp"
-            android:background="@color/primary_purple"
             android:layout_marginBottom="16dp"
-            app:layout_constraintTop_toTopOf="parent"
+            android:background="@color/primary_purple"
+            android:contentDescription="@string/app_name"
             app:layout_constraintBottom_toTopOf="@id/bill_label"
-            app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
-            android:contentDescription="@string/app_name"/>
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/app_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/app_name"
-            android:textStyle="bold"
-            android:textColor="@color/text_light"
-            android:textAllCaps="true"
-            android:textSize="18sp"
             android:letterSpacing="0.3"
-            app:layout_constraintTop_toTopOf="@id/top_background"
+            android:text="@string/app_name"
+            android:textAllCaps="true"
+            android:textColor="@color/text_light"
+            android:textSize="18sp"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@id/top_background"
+            app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent" />
+            app:layout_constraintTop_toTopOf="@id/top_background" />
 
         <TextView
             android:id="@+id/bill_label"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="16dp"
-            android:layout_marginBottom="8dp"
+            style="@style/TextStyle.NormalText.EditTextLabel"
             android:text="@string/bill_amount"
-            android:textColor="?android:textColorPrimary"
-            android:textSize="14sp"
-            app:layout_constraintBottom_toTopOf="@id/bill_input"
+            app:layout_constraintBottom_toTopOf="@id/bill_input_layout"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toBottomOf="@id/top_background" />
 
-        <EditText
-            android:id="@+id/bill_input"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/bill_input_layout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="16dp"
             android:layout_marginBottom="8dp"
-            android:autofillHints="@null"
-            android:backgroundTint="@color/primary_purple"
             android:hint="@string/bill_hint"
-            android:inputType="number"
             android:minHeight="48dp"
-            android:paddingVertical="10dp"
-            android:textColor="?android:textColorPrimary"
-            android:textColorHint="@color/gray"
-            android:textCursorDrawable="@null"
-            android:textSize="20sp"
-            android:textStyle="bold"
+            app:endIconMode="clear_text"
+            app:hintTextColor="@color/gray"
             app:layout_constraintBottom_toTopOf="@id/select_tip_label"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/bill_label" />
+            app:layout_constraintTop_toBottomOf="@id/bill_label">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/bill_input"
+                style="@style/TextInputStyle"
+                android:inputType="number" />
+        </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
             android:id="@+id/select_tip_label"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="16dp"
+            style="@style/TextStyle.NormalText.EditTextLabel"
             android:text="@string/satisfaction"
-            android:textColor="?android:textColorPrimary"
-            android:textSize="14sp"
             app:layout_constraintBottom_toTopOf="@id/tip_10"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/bill_input" />
+            app:layout_constraintTop_toBottomOf="@id/bill_input_layout" />
 
         <!--    TIP SELECTION BUTTONS    -->
         <com.google.android.material.button.MaterialButton
             android:id="@+id/tip_10"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="@string/tip_10"
-            android:textStyle="bold"
-            android:textSize="24sp"
-            android:backgroundTint="@color/background_light"
-            android:textColor="@color/primary_purple"
-            android:paddingVertical="8dp"
+            style="@style/DefaultButton.TipSelection"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
-            app:layout_constraintHorizontal_weight="1"
-            app:layout_constraintTop_toBottomOf="@id/select_tip_label"
+            android:text="@string/tip_10"
+            app:cornerRadius="8dp"
             app:layout_constraintBottom_toTopOf="@id/tip_25"
+            app:layout_constraintHorizontal_weight="1"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toLeftOf="@id/tip_15"
-            app:cornerRadius="8dp">
+            app:layout_constraintTop_toBottomOf="@id/select_tip_label">
         </com.google.android.material.button.MaterialButton>
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/tip_15"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="@string/tip_15"
-            android:textStyle="bold"
-            android:textSize="24sp"
-            android:backgroundTint="@color/background_light"
-            android:textColor="@color/primary_purple"
-            android:paddingVertical="8dp"
+            style="@style/DefaultButton.TipSelection"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
-            app:layout_constraintHorizontal_weight="1"
-            app:layout_constraintTop_toBottomOf="@id/select_tip_label"
+            android:text="@string/tip_15"
+            app:cornerRadius="8dp"
             app:layout_constraintBottom_toTopOf="@id/tip_30"
+            app:layout_constraintHorizontal_weight="1"
             app:layout_constraintLeft_toRightOf="@id/tip_10"
             app:layout_constraintRight_toLeftOf="@id/tip_20"
-            app:cornerRadius="8dp">
+            app:layout_constraintTop_toBottomOf="@id/select_tip_label">
         </com.google.android.material.button.MaterialButton>
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/tip_20"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="@string/tip_20"
-            android:textStyle="bold"
-            android:textSize="24sp"
-            android:backgroundTint="@color/background_light"
-            android:textColor="@color/primary_purple"
-            android:paddingVertical="8dp"
+            style="@style/DefaultButton.TipSelection"
             android:layout_marginHorizontal="16dp"
             android:layout_marginTop="8dp"
-            app:layout_constraintHorizontal_weight="1"
-            app:layout_constraintTop_toBottomOf="@id/select_tip_label"
+            android:text="@string/tip_20"
+            app:cornerRadius="8dp"
             app:layout_constraintBottom_toTopOf="@id/tip_35"
+            app:layout_constraintHorizontal_weight="1"
             app:layout_constraintLeft_toRightOf="@id/tip_15"
             app:layout_constraintRight_toRightOf="parent"
-            app:cornerRadius="8dp">
+            app:layout_constraintTop_toBottomOf="@id/select_tip_label">
         </com.google.android.material.button.MaterialButton>
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/tip_25"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="@string/tip_25"
-            android:textStyle="bold"
-            android:textSize="24sp"
-            android:backgroundTint="@color/background_light"
-            android:textColor="@color/primary_purple"
-            android:paddingVertical="8dp"
+            style="@style/DefaultButton.TipSelection"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
-            app:layout_constraintHorizontal_weight="1"
-            app:layout_constraintTop_toBottomOf="@id/tip_10"
+            android:text="@string/tip_25"
+            app:cornerRadius="8dp"
             app:layout_constraintBottom_toTopOf="@id/round_up_tip"
+            app:layout_constraintHorizontal_weight="1"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toLeftOf="@id/tip_30"
-            app:cornerRadius="8dp">
+            app:layout_constraintTop_toBottomOf="@id/tip_10">
         </com.google.android.material.button.MaterialButton>
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/tip_30"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="@string/tip_30"
-            android:textStyle="bold"
-            android:textSize="24sp"
-            android:backgroundTint="@color/background_light"
-            android:textColor="@color/primary_purple"
-            android:paddingVertical="8dp"
+            style="@style/DefaultButton.TipSelection"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
-            app:layout_constraintHorizontal_weight="1"
-            app:layout_constraintTop_toBottomOf="@id/tip_15"
+            android:text="@string/tip_30"
+            app:cornerRadius="8dp"
             app:layout_constraintBottom_toTopOf="@id/round_up_tip"
+            app:layout_constraintHorizontal_weight="1"
             app:layout_constraintLeft_toRightOf="@id/tip_25"
             app:layout_constraintRight_toLeftOf="@id/tip_35"
-            app:cornerRadius="8dp">
+            app:layout_constraintTop_toBottomOf="@id/tip_15">
         </com.google.android.material.button.MaterialButton>
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/tip_35"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="@string/tip_35"
-            android:textStyle="bold"
-            android:textSize="24sp"
-            android:backgroundTint="@color/background_light"
-            android:textColor="@color/primary_purple"
-            android:paddingVertical="8dp"
+            style="@style/DefaultButton.TipSelection"
             android:layout_marginHorizontal="16dp"
             android:layout_marginTop="8dp"
-            app:layout_constraintHorizontal_weight="1"
-            app:layout_constraintTop_toBottomOf="@id/tip_20"
+            android:text="@string/tip_35"
+            app:cornerRadius="8dp"
             app:layout_constraintBottom_toTopOf="@id/round_up_tip"
+            app:layout_constraintHorizontal_weight="1"
             app:layout_constraintLeft_toRightOf="@id/tip_30"
             app:layout_constraintRight_toRightOf="parent"
-            app:cornerRadius="8dp">
+            app:layout_constraintTop_toBottomOf="@id/tip_20">
         </com.google.android.material.button.MaterialButton>
 
-        <CheckBox
+        <com.google.android.material.checkbox.MaterialCheckBox
             android:id="@+id/round_up_tip"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:buttonTint="@color/primary_purple"
-            android:padding="7dp"
+            style="@style/CheckBoxStyle"
             android:text="@string/round_up_my_tip"
-            android:textColor="?android:textColorPrimary"
-            android:textSize="14sp"
             app:layout_constraintBottom_toTopOf="@id/calculate_button"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tip_25" />
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tip_25">
+        </com.google.android.material.checkbox.MaterialCheckBox>
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/calculate_button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            style="@style/DefaultButton"
             android:text="@string/calculate_btn"
-            android:textStyle="bold"
-            android:textSize="16sp"
-            android:textAllCaps="false"
-            android:backgroundTint="@color/primary_purple"
-            android:textColor="@color/text_light"
-            android:layout_marginHorizontal="16dp"
-            android:paddingVertical="10dp"
-            app:layout_constraintHorizontal_weight="1"
-            app:layout_constraintTop_toBottomOf="@id/round_up_tip"
+            app:cornerRadius="8dp"
             app:layout_constraintBottom_toTopOf="@id/response_img"
+            app:layout_constraintHorizontal_weight="1"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:cornerRadius="8dp">
+            app:layout_constraintTop_toBottomOf="@id/round_up_tip">
         </com.google.android.material.button.MaterialButton>
 
         <ImageView
             android:id="@+id/response_img"
             android:layout_width="140dp"
             android:layout_height="180dp"
-            android:layout_marginTop="20dp"
-            android:src="@drawable/img_hello"
             android:layout_marginStart="16dp"
-            app:layout_constraintTop_toBottomOf="@id/calculate_button"
+            android:layout_marginTop="20dp"
+            android:contentDescription="@null"
+            android:src="@drawable/img_hello"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toLeftOf="@id/your_tip_label"
-            android:contentDescription="@null"/>
+            app:layout_constraintTop_toBottomOf="@id/calculate_button" />
 
         <TextView
             android:id="@+id/your_tip_label"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginBottom="8dp"
+            style="@style/TextStyle.NormalText"
             android:text="@string/your_tip"
-            android:textColor="?android:textColorPrimary"
-            android:textSize="14sp"
             app:layout_constraintBottom_toTopOf="@id/calculated_tip"
             app:layout_constraintLeft_toRightOf="@id/response_img"
             app:layout_constraintTop_toBottomOf="@id/calculate_button"
@@ -271,40 +205,24 @@
 
         <TextView
             android:id="@+id/calculated_tip"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginBottom="18dp"
+            style="@style/TextStyle.NormalText.CalculatedTip"
             android:text="@string/calculated_tip"
-            android:textColor="?android:textColorPrimary"
-            android:textSize="16sp"
-            android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@id/total_bill_label"
             app:layout_constraintLeft_toRightOf="@id/response_img"
             app:layout_constraintTop_toBottomOf="@id/your_tip_label" />
 
         <TextView
             android:id="@+id/total_bill_label"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginBottom="8dp"
+            style="@style/TextStyle.NormalText"
             android:text="@string/your_final_total_bill"
-            android:textColor="?android:textColorPrimary"
-            android:textSize="14sp"
             app:layout_constraintBottom_toTopOf="@id/total_bill"
             app:layout_constraintLeft_toRightOf="@id/response_img"
             app:layout_constraintTop_toBottomOf="@id/calculated_tip" />
 
         <TextView
             android:id="@+id/total_bill"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
+            style="@style/TextStyle.NormalText.FinalBill"
             android:text="@string/final_bill"
-            android:textColor="?android:textColorPrimary"
-            android:textSize="20sp"
-            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toRightOf="@id/response_img"
             app:layout_constraintTop_toBottomOf="@id/total_bill_label" />

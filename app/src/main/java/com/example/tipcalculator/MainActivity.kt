@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.view.View
 import com.example.tipcalculator.databinding.ActivityMainBinding
 import com.google.android.material.button.MaterialButton
-import kotlin.math.round
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var binding: ActivityMainBinding
@@ -32,58 +31,27 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         when (view?.id) {
             R.id.tip_10 -> {
                 selectedTipAmount = 0.1
-                changeButtonStyle(binding.tip10)
-                undoButtonStyle(binding.tip15)
-                undoButtonStyle(binding.tip20)
-                undoButtonStyle(binding.tip25)
-                undoButtonStyle(binding.tip30)
-                undoButtonStyle(binding.tip35)
-
+                buttonClicked(binding.tip10)
             }
             R.id.tip_15 -> {
                 selectedTipAmount = 0.15
-                changeButtonStyle(binding.tip15)
-                undoButtonStyle(binding.tip10)
-                undoButtonStyle(binding.tip20)
-                undoButtonStyle(binding.tip25)
-                undoButtonStyle(binding.tip30)
-                undoButtonStyle(binding.tip35)
+                buttonClicked(binding.tip15)
             }
             R.id.tip_20 -> {
                 selectedTipAmount = 0.2
-                changeButtonStyle(binding.tip20)
-                undoButtonStyle(binding.tip10)
-                undoButtonStyle(binding.tip15)
-                undoButtonStyle(binding.tip25)
-                undoButtonStyle(binding.tip30)
-                undoButtonStyle(binding.tip35)
+                buttonClicked(binding.tip20)
             }
             R.id.tip_25 -> {
                 selectedTipAmount = 0.25
-                changeButtonStyle(binding.tip25)
-                undoButtonStyle(binding.tip10)
-                undoButtonStyle(binding.tip15)
-                undoButtonStyle(binding.tip20)
-                undoButtonStyle(binding.tip30)
-                undoButtonStyle(binding.tip35)
+                buttonClicked(binding.tip25)
             }
             R.id.tip_30 -> {
                 selectedTipAmount = 0.3
-                changeButtonStyle(binding.tip30)
-                undoButtonStyle(binding.tip10)
-                undoButtonStyle(binding.tip15)
-                undoButtonStyle(binding.tip20)
-                undoButtonStyle(binding.tip25)
-                undoButtonStyle(binding.tip35)
+                buttonClicked(binding.tip30)
             }
             R.id.tip_35 -> {
                 selectedTipAmount = 0.35
-                changeButtonStyle(binding.tip35)
-                undoButtonStyle(binding.tip10)
-                undoButtonStyle(binding.tip15)
-                undoButtonStyle(binding.tip20)
-                undoButtonStyle(binding.tip25)
-                undoButtonStyle(binding.tip30)
+                buttonClicked(binding.tip35)
             }
             R.id.calculate_button -> {
                 val tip = calculateTip(selectedTipAmount)
@@ -96,7 +64,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     private fun calculateTip(selectedTip: Double) : Double {
         val tip = if (binding.roundUpTip.isChecked) {
-            roundUpTip(selectedTip)
+            roundUpTip()
         } else {
             selectedTip
         }
@@ -108,8 +76,25 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         return binding.billInput.text.toString().toDouble() + calculatedTip
     }
 
-    private fun roundUpTip(selectedTip: Double) : Double {
-        return round(selectedTip)
+    private fun roundUpTip() : Double {
+        return 1.0
+    }
+
+    private fun buttonClicked(nextBtn: MaterialButton) {
+        val buttons = arrayListOf<MaterialButton>(
+            binding.tip10,
+            binding.tip15,
+            binding.tip20,
+            binding.tip25,
+            binding.tip30,
+            binding.tip35
+        )
+
+        buttons.remove(nextBtn)
+        changeButtonStyle(nextBtn)
+        buttons.forEach {
+            undoButtonStyle(it)
+        }
     }
 
     private fun undoButtonStyle(former: MaterialButton) {

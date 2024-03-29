@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Check Your Tip</string>
+    <string name="bill_amount">Jumlah Tagihan</string>
+    <string name="satisfaction">Berapa banyak yang ingin diberikan?</string>
+    <string name="bill_hint">Misal: 15000</string>
+    <string name="tip_10">10%</string>
+    <string name="tip_15">15%</string>
+    <string name="tip_20">20%</string>
+    <string name="tip_25">25%</string>
+    <string name="tip_30">30%</string>
+    <string name="tip_35">35%</string>
+    <string name="round_up_my_tip">Bulatkan (ke atas) tip Saya</string>
+    <string name="calculate_btn">Hitung</string>
+    <string name="your_tip">Tip Anda :</string>
+    <string name="calculated_tip">Rp 0,-</string>
+    <string name="your_final_total_bill">Total Tagihan Sekarang :</string>
+    <string name="final_bill">Rp 0,-</string>
+</resources>
